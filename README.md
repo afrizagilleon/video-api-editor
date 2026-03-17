@@ -229,17 +229,33 @@ Add a text overlay to the video.
 - `font_size` – optional, default: `70`
     
 - `font_color` – optional, default: `white`
+
+- `start` – optional, start time in seconds (default: full video)
     
 - `duration` – optional, duration in seconds (default: full video)
+
+- `bg` – optional, add background (default: `false`)
+
+- `bg_color` – optional, background color (default: `black`)
+
+- `bg_opacity` – optional, background opacity (default: `128`) (0-255)
+
+- `bg_radius` – optional, background radius (default: `0`)
     
 
 ```bash
 curl -X POST http://localhost:5000/api/add-text \
   -F "file=@video.mp4" \
-  -F "text=Subscribe Now!" \
+  -F "text=hello world" \
+  -F "fontsize=70" \
+  -F "color=yellow" \
   -F "position=bottom" \
-  -F "font_size=80" \
-  -F "font_color=yellow"
+  -F "start=1" \
+  -F "duration=10" \
+  -F "bg=true" \
+  -F "bg_color=white" \
+  -F "bg_opacity=255" \
+  -F "bg_radius=20"
 ```
 
 ---
