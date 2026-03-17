@@ -1,0 +1,21 @@
+services:
+  video-api:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./uploads:/app/uploads
+      - ./outputs:/app/outputs
+      - ./app:/app
+    environment:
+      - FLASK_ENV=development
+      - MAX_CONTENT_LENGTH=524288000  # 500MB
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+        reservations:
+          cpus: '1.0'
+          memory: 2G
